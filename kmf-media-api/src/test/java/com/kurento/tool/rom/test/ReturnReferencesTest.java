@@ -70,7 +70,7 @@ public class ReturnReferencesTest {
 			}
 		});
 
-		SampleClass obj3 = queue.poll(500, MILLISECONDS);
+		SampleClass obj3 = queue.poll(2000, MILLISECONDS);
 
 		Assert.assertNotNull(obj3);
 
