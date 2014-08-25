@@ -21,6 +21,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import com.kurento.kmf.media.GStreamerFilter;
+import com.kurento.kmf.media.PlateDetectorFilter;
 import com.kurento.kmf.media.PlayerEndpoint;
 import com.kurento.kmf.media.events.MediaEventListener;
 import com.kurento.kmf.media.test.base.AsyncResultManager;

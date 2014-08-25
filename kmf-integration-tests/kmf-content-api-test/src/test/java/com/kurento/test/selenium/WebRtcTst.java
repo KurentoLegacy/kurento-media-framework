@@ -125,9 +125,9 @@ public class WebRtcTst extends BaseArquillianTst {
 	}
 
 	@Test
-	public void testWebRtcLoopbackFaceOverlayChrome() throws Exception {
+	public void testWebRtcLoopbackJackVaderChrome() throws Exception {
 		webRtcTest(ChromeDriver.class, "webrtc.html",
-				"./webRtcFaceOverlayLoopback", "Connection started");
+				"./webRtcJackVaderLoopback", "Connection started");
 	}
 
 	/**

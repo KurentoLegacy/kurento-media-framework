@@ -17,13 +17,13 @@ package com.kurento.demo.cplondon;
 import com.kurento.kmf.content.HttpPlayerHandler;
 import com.kurento.kmf.content.HttpPlayerService;
 import com.kurento.kmf.content.HttpPlayerSession;
-import com.kurento.kmf.media.FaceOverlayFilter;
 import com.kurento.kmf.media.HttpGetEndpoint;
+import com.kurento.kmf.media.JackVaderFilter;
 import com.kurento.kmf.media.MediaPipeline;
 import com.kurento.kmf.media.PlayerEndpoint;
 import com.kurento.kmf.media.factory.MediaPipelineFactory;
 
-@HttpPlayerService(name = "CpPlayerWithFaceOverlayFilter", path = "/cpPlayerFace", redirect = true, useControlProtocol = true)
+@HttpPlayerService(name = "CpPlayerWithJackVaderFilter", path = "/cpPlayerJack", redirect = true, useControlProtocol = true)
 public class CpPlayerWithFilterHandler extends HttpPlayerHandler {
 
 	@Override
@@ -35,11 +35,7 @@ public class CpPlayerWithFilterHandler extends HttpPlayerHandler {
 		PlayerEndpoint playerEndPoint = mp.newPlayerEndpoint(
 				"http://files.kurento.org/video/fiwarecut.webm").build();
 
-		final FaceOverlayFilter filter = mp.newFaceOverlayFilter().build();
-		filter.setOverlayedImage(
-				"http://files.kurento.org/imgs/mario-wings.png", -0.35F, -1.2F,
-				1.6F, 1.6F);
-
+		JackVaderFilter filter = mp.newJackVaderFilter().build();
 		playerEndPoint.connect(filter);
 		session.setAttribute("player", playerEndPoint);
 		HttpGetEndpoint httpEndpoint = mp.newHttpGetEndpoint().terminateOnEOS()

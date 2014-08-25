@@ -19,8 +19,8 @@ import org.apache.commons.logging.LogFactory;
 
 import com.kurento.kmf.content.ContentEvent;
 import com.kurento.kmf.content.HttpPlayerSession;
-import com.kurento.kmf.media.FaceOverlayFilter;
 import com.kurento.kmf.media.HttpGetEndpoint;
+import com.kurento.kmf.media.JackVaderFilter;
 import com.kurento.kmf.media.MediaPipeline;
 import com.kurento.kmf.media.PlayerEndpoint;
 import com.kurento.kmf.media.ZBarFilter;
@@ -54,18 +54,14 @@ public class GenericPlayer {
 			if (contentId != null && VideoURLs.map.containsKey(contentId)) {
 				url = VideoURLs.map.get(contentId);
 			}
-			if (contentId != null && contentId.equalsIgnoreCase("face")) {
-				// Face Overlay Filter
+			if (contentId != null && contentId.equalsIgnoreCase("jack")) {
+				// Jack Vader Filter
 				MediaPipelineFactory mpf = session.getMediaPipelineFactory();
 				MediaPipeline mp = mpf.create();
 				session.releaseOnTerminate(mp);
 				PlayerEndpoint playerEndPoint = mp.newPlayerEndpoint(url)
 						.build();
-				final FaceOverlayFilter filter = mp.newFaceOverlayFilter()
-						.build();
-				filter.setOverlayedImage(
-						"http://files.kurento.org/imgs/mario-wings.png",
-						-0.35F, -1.2F, 1.6F, 1.6F);
+				JackVaderFilter filter = mp.newJackVaderFilter().build();
 				playerEndPoint.connect(filter);
 				HttpGetEndpoint httpEndpoint = mp.newHttpGetEndpoint()
 						.terminateOnEOS().build();

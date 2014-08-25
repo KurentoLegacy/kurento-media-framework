@@ -19,19 +19,18 @@ import com.kurento.kmf.content.HttpPlayerService;
 import com.kurento.kmf.content.HttpPlayerSession;
 import com.kurento.kmf.media.HttpGetEndpoint;
 
-@HttpPlayerService(name = "CpRtcPlayerHandler", path = "/cpRtcPlayerFaceOverlay", redirect = true, useControlProtocol = true)
-public class CpRtcPlayerFaceOverlayHandler extends HttpPlayerHandler {
+@HttpPlayerService(name = "CpRtcPlayerHandler", path = "/cpRtcPlayerJack", redirect = true, useControlProtocol = true)
+public class CpRtcPlayerJackHandler extends HttpPlayerHandler {
 
 	@Override
 	public void onContentRequest(HttpPlayerSession session) throws Exception {
-		if (CpRtcRtpFaceOverlayHandler.sharedFilterReference == null) {
+		if (CpRtcRtpJackHandler.sharedFilterReference == null) {
 			session.terminate(500, "Rtp session has not been established");
 		} else {
-			HttpGetEndpoint httpEndpoint = CpRtcRtpFaceOverlayHandler.sharedFilterReference
+			HttpGetEndpoint httpEndpoint = CpRtcRtpJackHandler.sharedFilterReference
 					.getMediaPipeline().newHttpGetEndpoint().terminateOnEOS()
 					.build();
-			CpRtcRtpFaceOverlayHandler.sharedFilterReference
-					.connect(httpEndpoint);
+			CpRtcRtpJackHandler.sharedFilterReference.connect(httpEndpoint);
 			session.start(httpEndpoint);
 		}
 	}
