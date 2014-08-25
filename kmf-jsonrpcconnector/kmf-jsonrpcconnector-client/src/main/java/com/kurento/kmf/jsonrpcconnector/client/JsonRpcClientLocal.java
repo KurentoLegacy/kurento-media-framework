@@ -64,7 +64,7 @@ public class JsonRpcClientLocal extends JsonRpcClient {
 					Continuation<Response<JsonElement>> continuation) {
 				Response<JsonElement> result = localSendRequest(request,
 						resultClass);
-				if (result == null) {
+				if (result != null) {
 					continuation.onSuccess(result);
 				}
 			}

@@ -71,12 +71,10 @@ public class KeepAliveTest {
 							+ duration + " > " + (NUM_KEEP_ALIVES * 1000) + ")",
 					duration > NUM_KEEP_ALIVES * 1000);
 
-			Assert.assertTrue(
-					"Waiting time should be less than 1 keepAlive more than estimated keepAlive time ("
-							+ duration
-							+ " < "
-							+ ((NUM_KEEP_ALIVES + 1) * 1000)
-							+ ")", duration < (NUM_KEEP_ALIVES + 1) * 1000);
+			Assert.assertTrue("Waiting time should be a bit more than "
+					+ NUM_KEEP_ALIVES + " keepAlive times (" + duration + " < "
+					+ ((NUM_KEEP_ALIVES + 3) * 1000) + ")",
+					duration < (NUM_KEEP_ALIVES + 3) * 1000);
 
 		}
 

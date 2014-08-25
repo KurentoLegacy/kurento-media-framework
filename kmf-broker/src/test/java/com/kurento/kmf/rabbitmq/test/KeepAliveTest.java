@@ -6,6 +6,7 @@ import java.util.concurrent.TimeUnit;
 
 import org.apache.thrift.TException;
 import org.junit.Assert;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -20,6 +21,7 @@ import com.kurento.kmf.media.factory.MediaPipelineFactory;
 import com.kurento.kmf.rabbitmq.client.JsonRpcClientRabbitMq;
 import com.kurento.kmf.rabbitmq.server.JsonRpcServerRabbitMq;
 
+@Ignore
 public class KeepAliveTest {
 
 	private static final int NUM_KEEP_ALIVES = 5;

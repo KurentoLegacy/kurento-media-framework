@@ -6,6 +6,7 @@ import org.apache.thrift.TException;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -22,6 +23,7 @@ import com.kurento.kmf.rabbitmq.manager.No2xxOKStatusResponseException;
 import com.kurento.kmf.rabbitmq.manager.RabbitManager;
 import com.kurento.kmf.rabbitmq.server.JsonRpcServerRabbitMq;
 
+@Ignore
 public class RetryTest {
 
 	private static final int TIMEOUT_RETRY_TIME = 400;

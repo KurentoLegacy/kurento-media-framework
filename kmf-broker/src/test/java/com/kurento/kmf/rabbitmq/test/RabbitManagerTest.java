@@ -3,12 +3,14 @@ package com.kurento.kmf.rabbitmq.test;
 import java.io.IOException;
 
 import org.junit.Assert;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import com.kurento.kmf.rabbitmq.client.JsonRpcClientRabbitMq;
 import com.kurento.kmf.rabbitmq.manager.No2xxOKStatusResponseException;
 import com.kurento.kmf.rabbitmq.manager.RabbitManager;
 
+@Ignore
 public class RabbitManagerTest {
 
 	private static final String PIPELINE_CREATION = "pipeline_creation";
